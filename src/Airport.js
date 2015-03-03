@@ -6,7 +6,8 @@ Airport.prototype.dock = function(plane){
   if (this.planes.length < 2){
     this.planes.push(plane);
     plane.land();
-  } else {
+  }
+  else {
     throw Error("Too many planes");
   }
 
