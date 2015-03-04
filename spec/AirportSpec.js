@@ -1,12 +1,16 @@
 describe('Airport', function(){
 
   var plane;
-  var weather
+  var weather;
+ 
 
   beforeEach(function(){
     plane = jasmine.createSpyObj('plane', ['land', 'takeOff']);
-    weather = jasmine.createSpyObj('weather',['isSunny'])
+    
+    // Stubbing version: weather = {isSunny: function() {}}; (without weather = new Weather();
+    weather = new Weather();
     airport = new Airport();
+    spyOn(weather, "isSunny").and.returnValue("sunny")
   });
 
   it('can dock a plane', function(){
